@@ -1,4 +1,3 @@
-
 import { Inter as FontSans } from "next/font/google"
 import { Metadata } from "next"
 import './globals.css'
@@ -11,13 +10,12 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "LiveDocs",
-  description: "An interactive document editor similar to google Docs, but with my own twist",
+  description: "An interactive collaborative document editor similar to google Docs, but with my own twist",
 }
 
 export default function RootLayout({ children }: {children: React.ReactNode  }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
       <body
         className={cn(
           "min-h-screen font-sans antialiased",
