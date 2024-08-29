@@ -1,29 +1,36 @@
-import { Inter as FontSans } from "next/font/google"
-import { Metadata } from "next"
-import './globals.css'
-import { cn } from "@/lib/utils"
-import { ClerkProvider } from "@clerk/nextjs"
-import { dark } from "@clerk/themes"
+import { Inter as FontSans } from "next/font/google";
+import { Metadata } from "next";
+import "./globals.css";
+import { cn } from "@/lib/utils";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
+import Provider from "./Provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
-})
+});
 
 export const metadata: Metadata = {
   title: "JamesDocs",
-  description: "An interactive collaborative document editor similar to google Docs, but with my own twist",
-}
+  description:
+    "An interactive collaborative document editor similar to google Docs, but with my own twist",
+};
 
-export default function RootLayout({ children }: {children: React.ReactNode  }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <ClerkProvider
       appearance={{
         baseTheme: dark,
         variables: {
           colorPrimary: "#3371ff",
-          fontSize: '16px'
-        }}}
+          fontSize: "16px",
+        },
+      }}
     >
       <html lang="en" suppressHydrationWarning>
         <body
@@ -31,10 +38,10 @@ export default function RootLayout({ children }: {children: React.ReactNode  }) 
             "min-h-screen font-sans antialiased",
             fontSans.variable
           )}
-          >
-          {children}
+        >
+          <Provider>{children}</Provider>
         </body>
       </html>
     </ClerkProvider>
-  )
+  );
 }
