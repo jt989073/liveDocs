@@ -5,8 +5,8 @@ import { ReactNode } from 'react'
 
 const Provider = ({children}: {children: ReactNode}) => {
   return (
-    <LiveblocksProvider publicApiKey={"/api/liveblocks-auth"}>
-      <ClientSideSuspense fallback={<div><Loader /></div>}>
+    <LiveblocksProvider authEndpoint={"/api/liveblocks-auth"}>
+      <ClientSideSuspense fallback={<Loader />}>
         {children}
       </ClientSideSuspense>
   </LiveblocksProvider>

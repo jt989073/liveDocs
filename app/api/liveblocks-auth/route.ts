@@ -16,7 +16,7 @@ if(!clerkUser) redirect('/sign-in')
         info: {
             id,
             name: `${firstName} ${lastName}`,
-            emailAdress: emailAddresses[0].emailAddress,
+            email: emailAddresses[0].emailAddress,
             avatar: imageUrl,
             color: getUserColor(id)
         }
